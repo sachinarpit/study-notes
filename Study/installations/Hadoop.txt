@@ -4,6 +4,7 @@ HADOOP
 	hadoop version => Hadoop 3.3.2
 
 	ssh localhost => Enable Remote login -> Mac -> System Preferences -> Sharing -> add user for remote login
+	sudo systemsetup -getremotelogin (check rempte login status)
 
 	which hadoop => /opt/homebrew/bin/hadoop or /usr/local/Cellar/hadoop/3.3.2/libexec/etc/hadoop
 
