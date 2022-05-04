@@ -5,7 +5,7 @@ HADOOP
 
 	ssh localhost => Enable Remote login -> Mac -> System Preferences -> Sharing -> add user for remote login
 
-	which hadoop => /opt/homebrew/bin/hadoop
+	which hadoop => /opt/homebrew/bin/hadoop or /usr/local/Cellar/hadoop/3.3.2/libexec/etc/hadoop
 
 	ls -lrt /opt/homebrew/bin/hadoop => /opt/homebrew/bin/hadoop -> ../Cellar/hadoop/3.3.2/bin/hadoop
 
