@@ -1,0 +1,20 @@
+show databases;
+create schema hivearpitdb; (create schema)
+drop schema hivearpitdb; (drop schema)
+
+CREATE TABLE IF NOT EXISTS hivedbarpit.student(
+Student_Name STRING,
+Student_Rollno INT,
+Student_Marks FLOAT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','; 
+
+select * from hivedbarpit.student;
+
+DROP TABLE IF EXISTS hivedbarpit.student;
+
+insert one record only
+INSERT INTO TABLE hivedbarpit.student VALUES ('Dikshant',1,'95'),('Akshat', 2 , '96'),('Dhruv',3,'90');
+
+other way to bulk load the records
+LOAD DATA LOCAL INPATH '/Users/arpitjain/Desktop/Arpit/Study/student.csv' INTO TABLE hivedbarpit.student;

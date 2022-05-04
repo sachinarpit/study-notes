@@ -1,0 +1,6 @@
+Find all text occurences of 9000 in xml files of hive folder recursively
+find hive313 -name  "*.xml" -exec grep -i "9000" {} \; -print
+
+How to Tell What Shell Your Mac is Using
+echo $0
+

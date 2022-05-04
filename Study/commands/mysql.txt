@@ -1,0 +1,6 @@
+SELECT user, host, account_locked, password_expired FROM mysql.user; (all users and their details)
+use mydb; (change database)
+CREATE USER 'hiveuser'@'localhost' IDENTIFIED BY 'hivepassword'; (create user - hiveuser, hivepassword)
+mysql -u hiveuser -p (password is hivepassword)
+GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';
+drop user 'hiveuser'@'localhost' ; (drop user)

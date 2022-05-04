@@ -1,0 +1,5 @@
+hdfs dfs -ls /
+hdfs dfs -ls -R / | grep "^d"
+
+hdfs dfs -chown -R hive:hadoop
+hdfs dfs -chown -R root:hadoop /tmp

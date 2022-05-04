@@ -1,0 +1,19 @@
+MySQL
+	Download and install https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.12-macos10.13-x86_64.dmg
+	root password - rootroot
+
+	go to system preferences -> MYSQL instance should be running (check at the bottom), you can stop/uninstall, if you want from here
+	
+	add/update PATH into ~/.zprofile
+		export PATH=$PATH:/usr/local/mysql-8.0.12-macos10.13-x86_64/bin
+
+	open a new terminal
+	mysql --version => mysql  Ver 8.0.12 for macos10.13 on x86_64 (MySQL Community Server - GPL)
+
+	mysql -u root -p (use rootroot password as cnfigured above) => mysql prompt will appear
+
+	mysql > show databases;
+
+	mysql >exit => Bye
+
+	uninstall -> System preferences -> MySQL at the bottom left -> uninstall

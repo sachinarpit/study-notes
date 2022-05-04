@@ -1,0 +1,5 @@
+brew update
+brew install homebrew/cask-versions/adoptopenjdk8 --cask 
+java -version => openjdk version "1.8.0_292"
+JAVA_HOME= “/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home”
+brew uninstall --cask adoptopenjdk8

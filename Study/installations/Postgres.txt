@@ -1,0 +1,11 @@
+Postgres & PGAdmin
+	Postgres
+		download .dmg from official website
+		superuser postgres password - password
+
+  	port 5432
+
+
+  	pgadmin
+  		download .dmg from official website
+  		master password for pgAdmin - pgAdmin

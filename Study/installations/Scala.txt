@@ -1,0 +1,4 @@
+brew install scala
+scala -version
+
+brew uninstall scala

@@ -1,0 +1,100 @@
+HADOOP
+	pre-req is jdk8 or higher
+	brew install hadoop
+	hadoop version => Hadoop 3.3.2
+
+	ssh localhost => Enable Remote login -> Mac -> System Preferences -> Sharing -> add user for remote login
+
+	which hadoop => /opt/homebrew/bin/hadoop
+
+	ls -lrt /opt/homebrew/bin/hadoop => /opt/homebrew/bin/hadoop -> ../Cellar/hadoop/3.3.2/bin/hadoop
+
+	cd /opt/homebrew/Cellar/hadoop/3.3.2/libexec/etc/hadoop
+
+	modify hadoop-env.sh for JAVA_HOME
+		export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+
+	HADOOP_OPTS
+		change export HADOOP_OPTS="-Djava.net.preferIPv4Stack=true"
+		to export HADOOP_OPTS="-Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="
+
+	core-site.xml
+<configuration>
+	<property>
+		<name>fs.defaultFS</name>
+		<value>hdfs://localhost:9000</value>
+	</property>
+</configuration>
+
+
+	hdfs-site.xml
+<configuration>
+	<property>
+		<name>dfs.replication</name>
+		<value>1</value>
+	</property>
+</configuration>
+
+	mapred-site.xml
+<configuration>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+	<property>
+		<name>mapreduce.application.classpath</name>   
+		<value>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*:$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*</value>
+	</property>
+</configuration>
+
+	yarn-site.xml
+<configuration>
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.env-whitelist</name>
+		<value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+	</property>
+</configuration>
+
+	Remove password requirement
+		ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+		cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+		chmod 0600 ~/.ssh/authorized_keys
+
+	Format NameNode
+
+		cd /opt/homebrew/Cellar/hadoop/3.3.2/libexec/bin
+		hdfs namenode -format
+
+	Run Hadoop
+		cd /opt/homebrew/Cellar/hadoop/3.3.2/libexec/sbin 
+		./start-all.sh 
+
+		jps
+			11091 DataNode
+			12323 Jps
+			11226 SecondaryNameNode
+			11419 ResourceManager
+			11517 NodeManager
+			10989 NameNode
+
+		http://localhost:9870/
+
+		http://localhost:8088/cluster - hadoop cluster
+
+		uninstall - brew uninstall hadoop
+
+===========
+The default directory of Hadoop log file is $HADOOP_HOME/logs (i.e. log directory in Hadoop home directory).
+
+The hadoop-env.sh file in Hadoop configuration directory (i.e. $HADOOP_HOME/etc/hadoop/hadoop-env.sh) contains the following property:
+
+# export HADOOP_LOG_DIR=${HADOOP_HOME}/logs
+Uncomment this line and add the location of your choice.
+----------
+java.io.IOException: Incompatible clusterIDs in /private/tmp/hadoop-arpitjain/dfs/data: namenode clusterID = CID-35cd51a6-3287-41f7-b284-d31599adf2fe; datanode clusterID = CID-17fc2d21-2271-4d2a-b45c-35ddfbda3658
+
+hdfs namenode -format -clusterId CID-17fc2d21-2271-4d2a-b45c-35ddfbda3658

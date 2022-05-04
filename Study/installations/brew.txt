@@ -1,0 +1,8 @@
+Install => /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Add Homebrew to your PATH:
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/arpitjain/.zprofile
+    
+Uninstall
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+    remove this entry from ~/.zprofile to remove it from PATH => eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -1,0 +1,19 @@
+pre-req Scala
+
+brew install apache-spark
+
+Spark home => /opt/homebrew/Cellar/apache-spark/3.2.1/libexec
+
+all scripts => /opt/homebrew/Cellar/apache-spark/3.2.1/libexec/sbin
+
+spark-shell
+val s = "hello world"
+
+pyspark
+
+
+Spark Master UI : http://localhost:8080/
+Spark Application UI : http://localhost:4040/
+
+
+brew uninstall apache-spark

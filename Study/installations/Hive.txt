@@ -1,0 +1,99 @@
+HIVE
+	pre-req - mysql, Hadoop, Java
+
+	Download and extract apache-hive-2.3.9-bin.tar.gz from https://dlcdn.apache.org/hive/hive-2.3.9
+
+	Download mysql driver => Select Platform Independent -> Download to your machine => download zip
+	
+	Extract zip and copy connector jar from this zip to $HIVE_HOME/lib (use sudo, if required)
+	
+	cd /usr/local
+	sudo tar -xvzf ~/Downloads/apache-hive-2.3.9-bin.tar.gz
+	sudo mv apache-hive-2.3.9-bin hive239
+
+	Declare HIVE_HOME and HIVE_HOME in PATH - ~/.zprofile
+		export HIVE_HOME=/usr/local/hive313
+		export PATH=$PATH:$HIVE_HOME/bin
+
+	Setup hive metastore database in MySQL
+		open mysql prompt -> mysql -u root -p (rootroot password)
+
+		mysql> CREATE DATABASE metastore; (drop database IF EXISTS metastore;)
+		
+		mysql> select user, host from mysql.user;
+
+		create user and grant access to the metastore database
+			mysql> CREATE user 'hiveuser'@'localhost' identified by 'hivepassword';
+			   
+			mysql> REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'hiveuser'@'localhost';
+			mysql> GRANT ALL ON *.* TO 'hiveuser'@'localhost' ;
+			mysql> FLUSH PRIVILEGES;
+
+
+		verify hiveuser login
+			mysql -u hiveuser -p (password -> hivepassword)
+
+	Make hive-site.xml for MySQL connectivity
+
+	cd $HIVE_HOME/conf
+	sudo cp hive-default.xml.template hive-site.xml
+
+	sudo vi hive-site.xml
+
+core-site, hive-site- same URL - hdfs://localhost:9000
+mysql details - user, passeord, url, driver
+change derby to mysql driver jar
+
+hive.metastore.warehouse.dir => hdfs://localhost:9000 (entry from hadoop core-site.xml)
+
+hive.exec.local.scratchdir => /tmp/hive
+hive.downloaded.resources.dir => /tmp/hive
+javax.jdo.option.ConnectionUserName => hiveuser
+javax.jdo.option.ConnectionPassword => hivepassword
+javax.jdo.option.ConnectionURL => jdbc:mysql://localhost:3306/metastore?createDatabaseIfNotExist=true
+javax.jdo.option.ConnectionDriverName => com.mysql.cj.jdbc.Driver
+
+for&#8;transactional tables => for transactional tables
+
+
+
+
+
+
+
+	copy mysql driver jar - $HIVE_HOME/lib (use sudo)
+
+
+
+	Run schematool
+		schematool -initSchema -dbType mysql -userName hiveuser -passWord hivepassword
+
+		if get any errors, like etc. - drop database IF EXISTS metastore;
+
+try sudo for both the below commands
+hive --service metastore
+hive
+
+		mysql> use metastore;
+		mysql> show tables; => 57 rows in set (0.00 sec)
+
+		one tab -> hive --service metastore
+		another tab -> hive
+
+		hive> show databases;
+		hive> create schema arpithivedb;
+
+
+		hive >CREATE TABLE IF NOT EXISTS arpithivedb.student(Student_Name STRING, Student_Rollno INT, Student_Marks FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ','; 
+
+		INSERT INTO TABLE arpithivedb.student VALUES ('Dikshant',1,'95'),('Akshat', 2 , '96'),('Dhruv',3,'90');
+
+
+		/Users/arpitjain/Desktop/Arpit/Study/student.csv content
+			Ganesh,4,85
+			Chandan,5,65
+			Bhavani,6,87
+
+		LOAD DATA LOCAL INPATH '/Users/arpitjain/Desktop/Arpit/Study/student.csv' OVERWRITE INTO TABLE arpithivedb.student;
+
+		uninstall -> delete hive folder from /usr/local

@@ -1,0 +1,187 @@
+distinct is applied to immediate next column or all?
+	yes all coumns present in the select clause
+
+can we use distinct at any place in the column list (in between) also?
+	No
+
+
+count
+	The COUNT() function returns the number of rows that matches a specified criterion.
+
+
+	valid usage of count
+		select count(*) from employee;
+		select count name from employee;
+		select count (name) from employee;
+
+		select count (id, name) from employee; -> invalid. No function matches the given name and argument types.
+
+	select count(a_cloumn) or count(*) return same result, as every row has same no. of colmuns in a table.
+
+	how many distinct employee are there?
+	select count(distinct name) from practice.employee;
+
+order by
+	The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+	"order by" needs to be towards the end of the query. Will be performed last.
+	"order by" can be applied to multiple columns. This is useful, when one column has duplicate entries
+
+Limit
+	Limit the rows to be returned.
+	Last to be executed.
+	Limit and Order by is a good combination.
+	Ex - Top 5 payments
+		 select * from payment order by payment_date desc Limit 5;
+
+Aggregate functions
+	Take multiple inputs and return a single output
+	avg(), count(), max(), min(), sum()
+
+	can only be used in select or having clause NOT IN WHERE CLAUSE
+
+	We cant combine any other column with aggregate functions, if we need to use, then use with group by ???
+
+	Aggregate functions are not allowed in WHERE clause, if you want to use conditions on aggregated functions, use having clause.
+
+Group By
+	Group by will allow us to aggregate data and apply functions to better understand how data is distributed per category
+	Can group by column be used with multiple columns???
+
+	How "Group By" works
+		Table -> Choose a column -> Split the table for the values -> 1 set will be one value -> Apply aggregate function on each set and return 1 value for each set
+
+	select category_column, aggregate_fn(category_column) from table group by category_column
+
+	"Group by" clause must appear right after from or where clause
+
+	Imp point - selected columns must be part of group by clause except any columns, which are part of aggregate function call input
+
+
+	If you want to sort results based on the aggregate, make sure to reference the aggregate function in Order by.
+
+
+Having
+	Allows to filter results after aggregation
+	Where can be used on a column along with Group by but if we want to filter results on the basis of aggregated value then we need to use having with Group By.
+
+	Where is executed before Group by.
+
+	Order of execution => Where caluse -> Group By -> Aggregtaed Fns
+	Due to the abobe sequence of execution, we cant use aggregated fns in where clause.
+
+	Now, if we want to filter some results, after Group By and Aggregated Fns call -> we need to use Having
+
+	Where can be combined with "Group By" clause only if where column is not aggregate fn
+		dvdrental examples
+			Ex - where + group by (we dont need having, as filter is applied on non aggregated fn)
+			select customer_id, sum(amount) from payment where customer_id in (184,87,477) group by customer_id
+
+			Ex - having + group by (we need having, as filter is applied on aggregated fn)
+			select customer_id, sum(amount) from payment group by customer_id having sum(amount) > 100
+
+	Whenever you are adding any column (non aggregated fn) in having clause, think twice..you can always add that column condition in where clause along with group by and having. SQL will allow using non aggregated fn in having but you should avoid, as you would need to add that to in select and group by as well. 
+
+AS operator (alias to a column name)
+	AS is executed at the end of the query. AS can only be used in SELECT statment and not in any filteration logic like WHERE/HAVING clauses (because WHERE/HAVING will be executed before AS).
+
+	Wrong syntax => select customer_id, sum(amount) as total_spent from payment where staff_id = 2 group by customer_id having total_spent > 100
+	ERROR:  column "total_spent" does not exist
+			LINE 1: ...nt where staff_id = 2 group by customer_id having total_spen...- 
+
+	Correct syntax => select customer_id, sum(amount) as total_spent from payment where staff_id = 2 group by customer_id having sum(amount) > 100
+
+
+	Wrong syntax => select customer_id, amount as money_spent from payment where money_spent > 2
+	ERROR:  column "money_spent" does not exist
+	LINE 1: ...omer_id, amount as money_spent from payment where money_spen...
+
+	Correct syntax => select customer_id, amount as money_spent from payment where amount > 2
+Joins
+	Section 5 of Udemy course "The Complete SQL Bootcamp 2022: Go from Zero to Hero" is very good.
+
+	A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+	The main reason for the diferent Join types is to decide how to deal with information only present in one of the joined tables.
+
+	Inner join - simplest - default join
+		A intersection B (result will be all selected columns in select clause but only matched values of columns used in join condition). Inner join is symmetrical so order of the table or columns can be changed in the query.
+
+		Ex - List customers, who has made at least one payment
+		select customer.customer_id, first_name, payment_id, amount from payment inner join customer on payment.customer_id = customer.customer_id 
+	Outer join
+		Allow us to specify how to deal with values only present in one of the tables being joined.
+		
+		Specify null condition in WHERE clause
+
+		Full Outer - simplest outer join
+		
+		Without where null condition
+			rows in A + rows in B but keep common rows only one time -> commanilty is for joined columns
+
+			select * from A full outer join B on A.id = B.id
+
+		With where null condition - completely opposite of inner join
+			only rows in A (not in B) + only rows in B (not in B) (Get rows unique to either tables, remove commons rows)
+
+			select * from A full outer join B on A.id = B.id where A.id is null or B.id is null
+
+		Left Outer join or left join - hardest for beginners - (A - B)
+			Returns set of records that are in the left table alone or common but not records exclusive to right table. If there are no matches with the right table, the results are null. 
+
+			It is not symmetrical so order by tables matter.
+
+			select * from A left outer join B on A.id = B.id
+
+			Left outer join with WHERE (get rows unique to the left table, i.e. exclude commons also => (left-right-commons)
+			select * from A left outer join B on A.id = B.id where B.id is null
+
+			List the films, which are not available in inventory (dvd rental database)
+			select film.film_id, title, store_id from film left outer join inventory on film.film_id = inventory.film_id where inventory.film_id is null
+		
+		Right Outer join or right join - switch the order of tables of left outer join
+			Returns set of records that are in the right table alone or common but not records exclusive to left table. If there are no matches with the left table, the results are null. 
+
+			It is not symmetrical so order by tables matter.
+
+			select * from A right outer join B on A.id = B.id
+
+	Union
+		combine results of 2 or more select statements.
+
+	Subquery
+
+	Exists - will return boolean
+		Exists is used test for existence of the rows in a subquery.
+
+	Self-Join (useful usecase - reporting to or manager or whenever you need to compare two columns which are semantically same or exactly same column)
+		Useful  for comparing values in a column of rows within the same table.
+
+		Join of 2 copies of the same table.
+
+	CASE
+		similar to IF/ELSE
+		CASE statement
+		CASE expression
+
+		select a,
+			CASE WHEN a = 1 THEN 'ONE'
+				 WHEN a = 1 THEN 'ONE'
+				 WHEN a = 1 THEN 'ONE'
+			ELSE 'OTHER' AS label
+			END
+		FROM TEST
+
+	COALESCE (good lecsture #75 of SQL Udemy course "The Complete SQL Bootcamp 2022: Go from Zero to Hero")
+		Accepts  an unlimited # of args, returns first non null arg. If all args are null, returns null.
+
+		useful when querying a table that contains null values and substituting it with another value.
+
+		usecase - convert null to 0 for any calculations. 
+
+	CAST
+		convert one type to anohter like 
+		Examples:
+			SELECT CAST('5' AS INTEGER)
+			SELECT CAST (mydate  AS TIMESTAMP) FROM table
+			
