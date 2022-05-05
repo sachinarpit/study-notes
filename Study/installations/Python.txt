@@ -1,4 +1,4 @@
 Install Anakonda from https://repo.anaconda.com/archive/Anaconda3-2021.11-MacOSX-x86_64.pkg
-It will install many packages like jupyter notebook, PyCharm, VSCode, R etc.
+It will install many packages like jupyter notebook, PyCharm, Spyder, VSCode, R etc.
 Go to Applications -> Launch Anaconda Navigator
 Launch "jupyter notebook" 4th icon in the first row, it will open browser "http://localhost:8889/tree"
