@@ -26,7 +26,7 @@ HIVE
 			mysql> CREATE user 'hiveuser'@'localhost' identified by 'hivepassword';
 			   
 			mysql> REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'hiveuser'@'localhost';
-			mysql> GRANT ALL ON *.* TO 'hiveuser'@'localhost' ;
+			mysql> GRANT ALL ON metastore.* TO 'hiveuser'@'localhost' ;
 			mysql> FLUSH PRIVILEGES;
 
 
