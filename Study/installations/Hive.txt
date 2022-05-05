@@ -44,10 +44,11 @@ core-site, hive-site- same URL - hdfs://localhost:9000
 mysql details - user, passeord, url, driver
 change derby to mysql driver jar
 
-hive.metastore.warehouse.dir => hdfs://localhost:9000 (entry from hadoop core-site.xml)
+hive.metastore.warehouse.dir => hdfs://localhost:9000/user/hive/warehouse (entry from hadoop core-site.xml)
 
 hive.exec.local.scratchdir => /tmp/hive
 hive.downloaded.resources.dir => /tmp/hive
+hive.querylog.location => /tmp/hive
 javax.jdo.option.ConnectionUserName => hiveuser
 javax.jdo.option.ConnectionPassword => hivepassword
 javax.jdo.option.ConnectionURL => jdbc:mysql://localhost:3306/metastore?createDatabaseIfNotExist=true
