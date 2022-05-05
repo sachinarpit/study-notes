@@ -15,6 +15,8 @@ HADOOP
 	Specify HADOOP_HOME in ~/.zprofile
 	export HADOOP_HOME=/opt/homebrew/Cellar/hadoop/3.3.2/libexec or /usr/local/Cellar/hadoop/3.3.2/libexec
 	
+	Add $HADOOP_HOME/bin and $HADOOP_HOME/sbin in PATH in ~/.zprofile
+	
 	modify hadoop-env.sh for JAVA_HOME
 		export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
