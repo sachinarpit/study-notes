@@ -97,4 +97,8 @@ hive
 
 		LOAD DATA LOCAL INPATH '/Users/arpitjain/Desktop/Arpit/Study/student.csv' OVERWRITE INTO TABLE arpithivedb.student;
 
+		to exit the hive prompt type exit;
+		
+		once on Mac shell run this => hdfs dfs -ls /user/hive/warehouse (this dir was specified in hive-site.xml as part of this field value - hive.metastore.warehouse.dir => hdfs://localhost:9000/user/hive/warehouse)
+		
 		uninstall -> delete hive folder from /usr/local
