@@ -1,5 +1,8 @@
 Install Anakonda from https://repo.anaconda.com/archive/Anaconda3-2021.11-MacOSX-x86_64.pkg
-It will install many packages like Free Python IDEs (PyCharm, Spyder, jupyter notebook), VSCode, R etc.
 Go to Applications -> Launch Anaconda Navigator
 Launch "jupyter notebook" 4th icon in the first row, it will open browser "http://localhost:8889/tree"
 Click on left top tab - Files -> New (right side dropdown) -> Python3 notebook
+Write this code in any cell => print("Hello World") => Click Run
+
+Free Python IDEs
+Pycharm -> Download and install => https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC
