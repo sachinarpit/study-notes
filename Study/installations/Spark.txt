@@ -1,4 +1,4 @@
-pre-req Scala
+pre-req - JDK8 or 11,  Scala, Python
 
 brew install apache-spark
 
