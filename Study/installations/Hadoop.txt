@@ -12,6 +12,9 @@ HADOOP
 
 	cd /opt/homebrew/Cellar/hadoop/3.3.2/libexec/etc/hadoop
 
+	Specify HADOOP_HOME in ~/.zprofile
+	export HADOOP_HOME=/opt/homebrew/Cellar/hadoop/3.3.2/libexec or /usr/local/Cellar/hadoop/3.3.2/libexec
+	
 	modify hadoop-env.sh for JAVA_HOME
 		export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
@@ -99,3 +102,9 @@ Uncomment this line and add the location of your choice.
 java.io.IOException: Incompatible clusterIDs in /private/tmp/hadoop-arpitjain/dfs/data: namenode clusterID = CID-35cd51a6-3287-41f7-b284-d31599adf2fe; datanode clusterID = CID-17fc2d21-2271-4d2a-b45c-35ddfbda3658
 
 hdfs namenode -format -clusterId CID-17fc2d21-2271-4d2a-b45c-35ddfbda3658
+-------------
+If Secondary namenode is not starting and getting this error -
+Error while starting/stopping the Secondary namenode:
+    <hostname>: ssh: Coult not resolve hostname <hostname>: nodename nor service provided , or not known
+Fix:
+127.echo 0.0.1 loclhost <hostname>
