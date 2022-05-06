@@ -1,17 +1,19 @@
 
-Before Spark
+# Before Spark
+## Data Requirements
 ---
-Datalake
+# Datalake
 ---
-What is Spark
+# What is Spark
 ---
-Why Spark
+# Why Spark
 ---
-Spark Development environments
+# Spark Development environments
 ---
-Installation
+# Installation
 ---
-Run Hello World program
+# Run Hello World program
 ---
+# Run Hello World program
 How Spark program runs
 ---
