@@ -60,10 +60,27 @@ Apache Spark™ is a multi-language engine for executing data engineering, data 
 * Structured Data: Spark SQL - Many data scientists, analysts, and general business intelligence users rely on interactive SQL queries for exploring data. Spark SQL is a Spark module for structured data processing. It provides a programming abstraction called DataFrames and can also act as distributed SQL query engine. It enables unmodified Hadoop Hive queries to run up to 100x faster on existing deployments and data. It also provides powerful integration with the rest of the Spark ecosystem (e.g., integrating SQL query processing with machine learning).
 
 * Streaming Analytics: Spark Streaming - Many applications need the ability to process and analyze not only batch data, but also streams of new data in real-time. Running on top of Spark, Spark Streaming enables powerful interactive and analytical applications across both streaming and historical data, while inheriting Spark’s ease of use and fault tolerance characteristics. It readily integrates with a wide variety of popular data sources, including HDFS, Flume, Kafka, and Twitter.
-
+ 
 * Machine Learning: MLlib - Machine learning has quickly emerged as a critical piece in mining Big Data for actionable insights. Built on top of Spark, MLlib is a scalable machine learning library that delivers both high-quality algorithms (e.g., multiple iterations to increase accuracy) and blazing speed (up to 100x faster than MapReduce). The library is usable in Java, Scala, and Python as part of Spark applications, so that you can include it in complete workflows. 
 
 * Graph Computation: GraphX - GraphX is a graph computation engine built on top of Spark that enables users to interactively build, transform and reason about graph structured data at scale. It comes complete with a library of common algorithms.
+
+# Spark core
+* Spark Compute Engine
+Apache Spark doesn't offer - Cluster management and Storage management. All you can do with Spark is to run your a processing workload and this is managed by Spark compute engine. Spark compute engine is responsible for bunch of things -
+  -  Breaking your data processing work into  smaller task
+  -  Scheduling those tasks on the cluster parallel execution
+  -  Providing data to these tasks
+  -  Managing and monitoring those tasks
+  -  Providing fault tolerence when job fails
+ 
+And to do all these, e engine is also responsible  interacting with the cluster manager and data storage manager. So the Spark compute engine is the core that runs and manages your data processingrk and provides u a seemless experience. All you need to do is submit your data processing jobs to Spark and Spark Core is going to take of everything else. 
+
+* APIs
+Layer that offers core APIs in 4 programming languages. These are the APIs, that we used to write data processing logic during the initial days of the Apache Spark. These APIs were based on RDDs (Resilient Distributed Datasets) and people found them a little tricky to learn use them for their day to day data processing work. Some people still use them today, however these APIs are the hardest y to work with Apache Spark. They also lack some performance optimization features and Spark creators are recommending them to avoid as much as possible, however these APIs can offer you the highest level of flxibility solve some complex data processing problems.
+
+* Spark SQL and Dataframes/Dataset , Streamingm, Mlib, GraphX
+This layer is the prime area of interest for most of the Spark developers and data scientists. This layer is again a set of libraries, packages, APIs and DSL. These are developed by the Spark community ver and above the e APIs, so we will be using these top-level Is and DSLs but internally all of these  will be using Spark Core APIS and ultimately ngs will go to Spark Compute engine.
 
 # Why Spark
 
