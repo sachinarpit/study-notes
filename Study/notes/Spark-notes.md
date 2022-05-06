@@ -19,8 +19,6 @@ Challenges with vertical scalability & high capital cost inspired James Dixon, t
 
 Inititally Data Lake was synonymous with Hadoop but overtime, lot of things evolved like cloud infrastructure in Data Lake.
 
-<img width="1179" alt="image" src="https://user-images.githubusercontent.com/8909535/167067050-3b274dfa-1496-4a28-a4b7-8bf41ac1e7f2.png">
-
 
 # HADOOP Ecosystem
 
