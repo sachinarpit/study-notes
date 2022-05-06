@@ -53,7 +53,7 @@ Apache Spark started at UC Berkeley in 2009, and open sourced in 2010 under a BS
 
 Apache Spark™ is a multi-language engine for executing data engineering, data science, and machine learning on single-node machines or clusters.
 
-<img width="677" alt="image" src="https://user-images.githubusercontent.com/8909535/167126086-4075f60c-39c3-466f-965b-15bc5dff0f49.png">
+<img width="940" alt="image" src="https://user-images.githubusercontent.com/8909535/167127156-0cecc9c8-905a-4087-9cba-5d81b439f285.png">
 
 * General Execution: Spark Core - Spark Core is the underlying general execution engine for the Spark platform that all other functionality is built on top of. It provides in-memory computing capabilities to deliver speed, a generalized execution model to support a wide variety of applications, and Java, Scala, and Python APIs for ease of development.
 
