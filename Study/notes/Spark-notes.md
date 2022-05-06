@@ -3,6 +3,10 @@
 ============
 #Datalake
 ============
+What is Spark
+============
+Why Spark
+============
 #Spark Development environments
 ============
 #Installation
