@@ -32,14 +32,10 @@ Inititally Data Lake was synonymous with Hadoop but overtime, lot of things evol
 * Storage
   - The core of the data Lake platform is storage infrastructure. In today's Data Lake, this could be an on-premise HDFS or cloud storage i.e. AWS  S3, Azure Blob, Google Cloud storage etc. Cloud storage is leading because, they offer scalability and high availability access at extremely low cost almost no time to procure.
 
-* Processing
-- This is the place where all computation is going to happen, which involves initial data quality check, trasforming and preparing the data, correlating, aggregating, analyzing and extracting some business insights, applying ML models. But, we want to do all these on large scale, so this layer is broken further into two parts to manage things and separate out the responsibilities.
- * Data processing framework
-   Core framework to sign and develop distributed computing applications. Apache Spark falls in this place and many similiar things. We have 3 comptetitors - YARN, Mesos and Apache Kubernetes 
- * Orchestration system
-   - Responsible for for the formation of the cluster, managing the resources and scaling up/down.
-* Retrieval
- - Most critical capability of a data lake is to allow you to consume data from data lake. Think of a data lake as a repository of a raw and processed data. Consumption is all about tting  data for real life usage. Consumption requirements come in all required formats. Consumers could be Data lysts and data scientists oking to access data from the lake, apps, dashboards interested in gregated lts and insights. Some of them would ask you to allow to access lake data via JDBC/ODBC connections or REST interface. Experimenting  scientists might be interested in ssing files. To serve all different consumption requirements, there are many competitors too in this space.
+* Processing - This is the place where all computation is going to happen, which involves initial data quality check, trasforming and preparing the data, correlating, aggregating, analyzing and extracting some business insights, applying ML models. But, we want to do all these on large scale, so this layer is broken further into two parts to manage things and separate out the responsibilities.
+  - Data processing framework - Core framework to sign and develop distributed computing applications. Apache Spark falls in this place and many similiar things. We have 3 comptetitors - YARN, Mesos and Apache Kubernetes 
+  - Orchestration system - Responsible for the formation of the cluster, managing the resources and scaling up/down.
+* Retrieval - Most critical capability of a data lake is to allow you to consume data from data lake. Think of a data lake as a repository of a raw and processed data. Consumption is all about tting  data for real life usage. Consumption requirements come in all required formats. Consumers could be Data lysts and data scientists oking to access data from the lake, apps, dashboards interested in gregated lts and insights. Some of them would ask you to allow to access lake data via JDBC/ODBC connections or REST interface. Experimenting  scientists might be interested in ssing files. To serve all different consumption requirements, there are many competitors too in this space.
 
 Other capabilities are needed complete the data lake implementation. The most critical ones are - 
 * Security and Access Control 
