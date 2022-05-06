@@ -18,6 +18,7 @@ Google released 2 whitepapers to solve Data Storage and Processing needs via GFS
 Challenges with vertical scalability & high capital cost inspired James Dixon, the CTO of Pentaho to come up with a new concept called 'Data Lake' in Oct 2010.
 
 Inititally Data Lake was synonymous with Hadoop but overtime, lot of things evolved like cloud infrastructure in Data Lake.
+<img width="1189" alt="image" src="https://user-images.githubusercontent.com/8909535/167073653-5344c3a2-8408-4076-bace-1c007d12548a.png">
 
 
 # HADOOP Ecosystem
