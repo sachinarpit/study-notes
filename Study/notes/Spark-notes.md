@@ -51,8 +51,19 @@ Other capabilities are needed complete the data lake implementation. The most cr
 # What is Spark
 Apache Spark started at UC Berkeley in 2009, and open sourced in 2010 under a BSD license. In 2013, the project was donated to the Apache Software Foundation and switched its license to Apache 2.0. In February 2014, Spark became a Top-Level Apache Project.
 
-<img width="1096" alt="image" src="https://user-images.githubusercontent.com/8909535/167064754-c8b14fcf-52da-42e5-bba9-cf0207650006.png">
+Apache Spark™ is a multi-language engine for executing data engineering, data science, and machine learning on single-node machines or clusters.
 
+<img width="677" alt="image" src="https://user-images.githubusercontent.com/8909535/167126086-4075f60c-39c3-466f-965b-15bc5dff0f49.png">
+
+* General Execution: Spark Core - Spark Core is the underlying general execution engine for the Spark platform that all other functionality is built on top of. It provides in-memory computing capabilities to deliver speed, a generalized execution model to support a wide variety of applications, and Java, Scala, and Python APIs for ease of development.
+
+* Structured Data: Spark SQL - Many data scientists, analysts, and general business intelligence users rely on interactive SQL queries for exploring data. Spark SQL is a Spark module for structured data processing. It provides a programming abstraction called DataFrames and can also act as distributed SQL query engine. It enables unmodified Hadoop Hive queries to run up to 100x faster on existing deployments and data. It also provides powerful integration with the rest of the Spark ecosystem (e.g., integrating SQL query processing with machine learning).
+
+* Streaming Analytics: Spark Streaming - Many applications need the ability to process and analyze not only batch data, but also streams of new data in real-time. Running on top of Spark, Spark Streaming enables powerful interactive and analytical applications across both streaming and historical data, while inheriting Spark’s ease of use and fault tolerance characteristics. It readily integrates with a wide variety of popular data sources, including HDFS, Flume, Kafka, and Twitter.
+
+* Machine Learning: MLlib - Machine learning has quickly emerged as a critical piece in mining Big Data for actionable insights. Built on top of Spark, MLlib is a scalable machine learning library that delivers both high-quality algorithms (e.g., multiple iterations to increase accuracy) and blazing speed (up to 100x faster than MapReduce). The library is usable in Java, Scala, and Python as part of Spark applications, so that you can include it in complete workflows. 
+
+* Graph Computation: GraphX - GraphX is a graph computation engine built on top of Spark that enables users to interactively build, transform and reason about graph structured data at scale. It comes complete with a library of common algorithms.
 
 # Why Spark
 
