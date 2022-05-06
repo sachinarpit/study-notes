@@ -83,6 +83,13 @@ Layer that offers core APIs in 4 programming languages. These are the APIs, that
 This layer is the prime area of interest for most of the Spark developers and data scientists. This layer is again a set of libraries, packages, APIs and DSL. These are developed by the Spark community ver and above the e APIs, so we will be using these top-level Is and DSLs but internally all of these  will be using Spark Core APIS and ultimately ngs will go to Spark Compute engine.
 
 # Why Spark
+These 3 things make Spark a super popular distributed computing platform for data procesing.
+* Abstraction
+Spark will abstract away the fact that you are coding to execute ur program on a cluster of computers. In the best-case scenario, you will be working with tables and g SQL queries. You will feel like working with database. In the worst-case scenario, you will be working with RDDs and Dataframes. All the complexities of distributed storage, computation and parallel programming is abstracted away by the Spark core.
+* Unified Platform
+Spark combines the capabilities of the SQL queries, Batch processing, Stream processing, Structured and Semi-Structured handling, Graph processing, ML and deep learning. All of this in single framework using your favorite programming language. 
+* Ease of use
+If you compare with Hadoop and MapReduce code, Spark code is much rter, simple, easy to read understand. You also have a growing and evolving ecosystem to offer ready to use libraries, algorithms and integrations with a wide variety of other systems.
 
 # Spark Development environments
 
