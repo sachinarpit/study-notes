@@ -1,5 +1,6 @@
 # Data Requirements
 * Collection / Ingestion
+ - The core req
 * Storage
 * Processing
 * Retrieval
@@ -18,14 +19,29 @@ Google released 2 whitepapers to solve Data Storage and Processing needs via GFS
 Challenges with vertical scalability & high capital cost inspired James Dixon, the CTO of Pentaho to come up with a new concept called 'Data Lake' in Oct 2010.
 
 Inititally Data Lake was synonymous with Hadoop but overtime, lot of things evolved like cloud infrastructure in Data Lake.
-<img width="1189" alt="image" src="https://user-images.githubusercontent.com/8909535/167073653-5344c3a2-8408-4076-bace-1c007d12548a.png">
+<img width="1189" alt="image" src="https://user-images.githubusercontent.com/8909535/167073653-5344c3a2-8408-4076-bace-1c007d12548a.png"> 
 
+# Data Warehouse vs Data Lake
+![image](https://user-images.githubusercontent.com/8909535/167074141-2ac1aa26-e1f3-4bcc-b119-9de1353ea361.png)
 
+# Matured Data Lake concept solving original Data Requirements (Collection / Ingestion, Storage, Processing, Retrieval)
+<img width="1207" alt="image" src="https://user-images.githubusercontent.com/8909535/167073909-5c46aac3-0a05-422f-b494-605a175fc584.png">
+
+# How Data Lake fulfills data managemnet requirements
+* Collection / Ingestion
+  Ingestion in Data LAke is all about identifying, implementing and managing right tools to bring data from the source system to the Data Lake. There is no single tool, which solve the purpose in all the usecases and hence, many vendors are competing in this place. 
+ 
+* Storage
+  - The core of the data Lake platform is storage infrastructure. In today's Data Lake, this could be an on-premise HDFS or cloud storage i.e. AWS  S3, Azure Blob, Google Cloud storage etc. Cloud storage is leading because, they offer scalability and high availability access at extremely low cost almost no time to procure.
+
+* Processing
+  - This is the place where all computation is going to happen, which involves initial data quality check, trasforming and preparing the data, correlating, aggregating, analyzing and extracting some business insights.
+  
+* Retrieval
+* 
 # HADOOP Ecosystem
-
 <img width="1601" alt="image" src="https://user-images.githubusercontent.com/8909535/167064327-8ed4ce01-7167-4c0e-bafe-f0d127e1c080.png">
 
-# Datalake
 
 # What is Spark
 Apache Spark started at UC Berkeley in 2009, and open sourced in 2010 under a BSD license. In 2013, the project was donated to the Apache Software Foundation and switched its license to Apache 2.0. In February 2014, Spark became a Top-Level Apache Project.
