@@ -101,8 +101,12 @@ Databricks notebooks
   
 Anaconda / Other notebooks
   - Data storage ?
+  * Install Anakonda individual edition
+  * Set SPARK_HOME
+  * Install findspark
+  * Initialize findspark (connection between Anaconda Python env and Spark installation
 
-Cloud Offerings like AWS EMR, Azure databricks, GCP databricks
+Cloud Offerings like AWS EMR, Azure Dataproc, GCP HDInsight
 
 
 # Installation
