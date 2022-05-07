@@ -114,8 +114,17 @@ Cloud Offerings like AWS EMR, Azure Dataproc, GCP HDInsight
 # Installation
 
 # Run Hello World program
+* How to create Spark program
+* How to run Spark program 
+  - Interactive clients - for learning/development phase, best for exploration purposes - ex. - spark-shell, notebooks 
+  - Submit job - production usecases - package your jon abd submit it to Spark cluster for execution - spark-submit
+    Apache Spark comes with spark-submit utility to allow you to submit your job to spark cluster
+
+# What happens, when you submit your job to Spark cluster
+
+# How Spark program runs
 
 # Run Hello World program
 
-# How Spark program runs
+
 
