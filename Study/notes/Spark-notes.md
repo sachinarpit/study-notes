@@ -125,6 +125,7 @@ Cloud Offerings like AWS EMR, Azure Dataproc, GCP HDInsight
   - Client
   - Cluster
 
+    Notebooks can run in Client (if running from local machine) and cluster (if running from cloud i.e. databricks or AWS, Azure, GCP etc. ???
   * When to use what
 
 # What happens, when you submit your job to Spark cluster
