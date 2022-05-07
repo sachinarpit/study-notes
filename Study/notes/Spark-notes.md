@@ -92,6 +92,15 @@ Spark combines the capabilities of the SQL queries, Batch processing, Stream pro
 If you compare with Hadoop and MapReduce code, Spark code is much rter, simple, easy to read understand. You also have a growing and evolving ecosystem to offer ready to use libraries, algorithms and integrations with a wide variety of other systems.
 
 # Spark Development environments
+Local - command line RPEL
+PyCharm
+Databricks notebooks
+  * Sign up with Databricks community edition (email, debit/credit card and with AWS/Azure/GCP account)
+  
+Other notebooks
+Anaconda
+Cloud Offerings like AWS EMR, Azure databricks, GCP databricks
+
 
 # Installation
 
