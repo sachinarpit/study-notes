@@ -129,7 +129,7 @@ Cloud Offerings like AWS EMR, Azure Dataproc, GCP HDInsight
   * When to use what
 
 
-# Driver and executors in the light of execution modes
+# Driver, Executors and Driver memory in the light of execution modes
 
 # What happens, when you submit your job to Spark cluster
 
