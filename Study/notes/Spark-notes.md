@@ -99,10 +99,9 @@ PyCharm
 Databricks notebooks
   * Sign up with Databricks community edition (email, debit/credit card and with AWS/Azure/GCP account)
   
-Other notebooks
+Anaconda / Other notebooks
   - Data storage ?
-Anaconda
-  - Data storage ?
+
 Cloud Offerings like AWS EMR, Azure databricks, GCP databricks
 
 
