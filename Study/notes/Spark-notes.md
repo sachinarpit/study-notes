@@ -100,7 +100,7 @@ Databricks notebooks
   * Sign up with Databricks community edition (email, debit/credit card and with AWS/Azure/GCP account)
   
 Anaconda / Other notebooks
-  - Data storage ?
+  - Data storage  - local filesystem - yes, HDFS, S3?
   - How to run Spark notebook - findspark not found???
   
   * Install Anakonda individual edition
