@@ -122,6 +122,8 @@ Cloud Offerings like AWS EMR, Azure Dataproc, GCP HDInsight
 
 # What happens, when you submit your job to Spark cluster
 
+# How Spark works on local machine
+
 # How Spark program runs
 
 # Run Hello World program
