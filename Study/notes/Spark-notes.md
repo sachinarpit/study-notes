@@ -108,7 +108,7 @@ Anaconda / Other notebooks
   * Install findspark
   * Initialize findspark (connection between Anaconda Python env and Spark installation
 
-Cloud Offerings like AWS EMR, Azure Dataproc, GCP HDInsight
+Cloud Offerings like AWS EMR, GCP Dataproc, Azure HDInsight
 
 
 # Installation
@@ -129,7 +129,7 @@ Cloud Offerings like AWS EMR, Azure Dataproc, GCP HDInsight
   * When to use what
 
 
-# Driver, Executors and Driver memory in the light of execution modes
+# Driver, Executors and Driver memory, Driver cores in the light of execution modes
 
 # What happens, when you submit your job to Spark cluster
 
