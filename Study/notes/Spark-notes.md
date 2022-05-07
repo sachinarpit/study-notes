@@ -135,12 +135,15 @@ Cloud Offerings like AWS EMR, GCP Dataproc, Azure HDInsight
 
 # How Spark works on local machine
 
-#questions
-* Executor/Slave (of a runing program) vs Worker of a multi-node cluster?
 
 # How Spark program runs
 
 # Run Hello World program
 
+#questions
+* Executor/Slave (of a runing program) vs Worker of a multi-node cluster?
+* spark-submit --help (is it for local or client mode ?)
+* spark-shell --help (is it for cluster mode ?)
+* spark session and spark context
 
 
