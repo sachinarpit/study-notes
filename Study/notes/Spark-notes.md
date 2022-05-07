@@ -101,6 +101,8 @@ Databricks notebooks
   
 Anaconda / Other notebooks
   - Data storage ?
+  - How to run Spark notebook - findspark not found???
+  
   * Install Anakonda individual edition
   * Set SPARK_HOME
   * Install findspark
