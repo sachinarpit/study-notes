@@ -120,9 +120,6 @@ There are two challenges in this problem statement:
 
 </p>
 
-# What is Datalake and how it works
-# Introducing Apache Spark and Databricks Cloud
-
 # Enterprise Data Management Requirements
 * Collection / Ingestion
 * Storage
@@ -130,6 +127,7 @@ There are two challenges in this problem statement:
 * Retrieval
 
 # Need of distributed data storage and processing
+<p>
 Vertical scalability was fine until data volumes and processing/computation power/needs grown to a unmanagable level with vertical scalaibility.
 
 Before Distributed processing, Data warehouses (Teradata, Exadata etc.) were very successful using vertical scalability (high capital cost).
@@ -138,6 +136,32 @@ Google was the company to realize this, do research and create abusiness around 
 
 Google released 2 whitepapers to solve Data Storage and Processing needs via GFS (2003) and MapReduce (2004) respectively. These whitepapers led to the invention of HDFS and Hadoop MapReduce.
 
+The open-source community well appreciated these whitepapers, and they formed the basis for the design and the development of a similar open-source implementation –The Hadoop. The open-source community implemented the GFS as a Hadoop Distributed File System –HDFS. They applied Google MR as the Hadoop MapReduce programming framework.Hadoop grabbed immense attention and popularity among organizations and professionals.Since the development of Hadoop, there have been many other solutions developed over the Hadoop platform and open-sourced by various organizations.Some of the most widely adopted systems were Pig, Hive, and HBase.
+
+<img width="661" alt="image" src="https://user-images.githubusercontent.com/8909535/167281981-4d46157c-a9e0-4717-beb5-652f56191dae.png">
+
+
+Apache Hive was one of the most popular components of Hadoop. Hive offered the following core capabilities on the Hadoop Platform:
+    1. Create Databases, Tables, and Views
+    2. Run SQL Queries on the Hive Tables
+    
+So Hive simplified using Hadoop. Application developers struggled to solve data processing problems using Map Reduce. 
+    
+Hive came to the rescue. It allowed us to create databases and tables using DDL Statement.Then they also allowed us to use SQL queries on the table.The majority of the development workforce was familiar with the RDBMS, and they already knew SQL.So using SQL was easy to adopt.
+    
+Hive SQL engine internally translated SQL queries into M/R programs.But application developers were saved from writing Map Reduce code in Java.
+
+Hadoop as a platform and Hive as a Hadoop database became very popular.But we still had the following problems which needed improvements:
+    1. Performance
+    2. Ease of development
+    3. Language support
+    4. Storage 
+    5. Resource Management
+
+Spark advantages over HADOOP
+<img width="847" alt="image" src="https://user-images.githubusercontent.com/8909535/167282075-aaca54f8-7fa1-4d28-8912-dbe2c22911f4.png">
+
+</p>
 # Datalake concept
 Challenges with vertical scalability & high capital cost inspired James Dixon, the CTO of Pentaho to come up with a new concept called 'Data Lake' in Oct 2010.
 
