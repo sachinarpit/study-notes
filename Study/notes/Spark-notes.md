@@ -39,9 +39,87 @@ Here is a comparison between Database and Hadoop.
 
 <img width="876" alt="image" src="https://user-images.githubusercontent.com/8909535/167280286-2b33bc0c-0627-4361-85af-92e65e5bcb0d.png">
 
-
-
 # HADOOP architecture, history and its evolution
+Hadoop is a distributed data processing platform that offers three core capabilities listed below:
+1.  YARN - Cluster Resource Manager
+    YARN is the Hadoop cluster resource manager. It allows multiple applications to run on the Hadoop Cluster and share resources amongst the applications. 
+    YARN has 3 components - 
+    * RM - Resource Manager
+    * NM - Node Manager
+    * AM - Application Master
+
+    Assume we installed Hadoop, and now these five computers form a Hadoop cluster. Hadoop uses a master-slave architecture.So one of these machines will become the master, and the remaining will act as the worker node. 
+
+<img width="820" alt="image" src="https://user-images.githubusercontent.com/8909535/167281392-0ffe0bc7-703e-41f2-bb7a-deb7fd6935e4.png">
+
+<p>We have a five-node cluster - One node acts as a master and runs the YARN resource manager service. The other four nodes act as a Worker and run a node manager service.
+
+The node manager will regularly send the node status report to the resource manager. 
+
+For running an application on Hadoop, you must submit the application to the YARN resource manager. Assume you submitted a Java application to the YARN using a command line submit tool. 
+  
+Now the resource manager should run this application on the cluster.So, the resource manager will request one of the node managers to start a resource container and run an AM (application master) in the container.  And your application starts running inside the Application Master container.So, we submit our application to the Resource Manager.
+  
+The resource manager requests the node manager for allocating an application master container and starting your application inside the AM container. Each application on YARN runs inside a different AM container.If you have ten applications running in parallel, you will see 10 AM containers on your Hadoop cluster.
+</p>
+
+3.  HDFS - Distributed Storage
+<p>
+The HDFS stands for Hadoop Distributed File system, and it allows you to save and retrieve data files in the Hadoop Cluster.The HDFS has the following components.
+</p>
+
+  * Name Node (NN)
+  * Data Node (DN)
+
+  <img width="824" alt="image" src="https://user-images.githubusercontent.com/8909535/167281534-ea583b56-d1df-49d4-be1f-0328d632be61.png">
+
+<p>
+Assume we have five computers shown below. We already installed Hadoop on these computers and created a Hadoop cluster. 
+  
+Hadoop will install the Name Node service on the master.And each worker node runs a data node service. 
+
+The name node with the data node service forms the HDFS. The primary purpose of the HDFS is to allow us to save files on this Hadoop cluster and read them whenever required.
+
+</p>
+  
+
+
+4.  Map/Reduce - Distributed Computing
+<p>
+Map-reduce is a programming model and a framework. A programming model is a technique or a way of solving problems. The M/R framework is a set of APIs and services that allow you to apply the map-reduce programming model.
+  
+Hadoop taught us the map-reduce programming modal and also offered a Map-Reduce programming framework to implement it.
+  
+Problem in hand:
+  
+You have to count the lines in a 20 TB CSV file. 
+  
+There are two challenges in this problem statement:
+1.Huge file size, It is hard to find machines to store 20 TB of data. And this problem becomes more complex if we grow the size in petabytes.
+2.We also have a processing time problem. A simple line count on a 20 TB file takes hours or days.
+
+  <img width="803" alt="image" src="https://user-images.githubusercontent.com/8909535/167281621-5ccdc496-5ad8-4276-b606-dcd45808c462.png">
+
+  How to use M/R to solve this problem
+  
+  Hadoop offered to solution to both problems we discussed in the previous slide. You can use the Hadoop cluster to store the file. Let's assume you have a 21 node Hadoop cluster. One node becomes the master, and the other 20 nodes are the workers. HDFS runs a name node in the master and a data node on the other workers. YARN runs a Resource Manager on the master, and Node Manager runs on the workers. So we have those services running on the cluster.
+
+  You can use HDFS to copy your 20 TB file on this cluster. HDFS will break the file into small 128 MB blocks and spread them across the cluster. So some data nodes will sore data blocks, and altogether they can easily store your 20 TB file. Your storage problem is taken care of by the Hadoop cluster. If you need more storage, you can increase the cluster size and add more computers.
+
+  Now let us come to the processing time problem. I have broken my logic into two part which you can see in the image below. The first part is known as the Map function. The second part is known as the Reduce function. The old logic was to open the file and count the lines. And the new logic is almost the same as old logic. But the map function opens the file block and counts the lines. And the old logic opens the file and counts the lines.
+
+  I can run the map function on all the data nodes in parallel. This map() function will open each block on the data node and count the lines. End of the execution, I will have the number of lines in the blocks at the given data node. I am counting lines on 14 data nodes in parallel. Everything runs at the same time. And I will get the line counts in 1/14th of the time compared to doing it on a single machine. However, I will have 14 line counts. Each count represents the number of lines on their respective data node.
+
+  Then, I will start a Reduce function at one node. All the data node will send their counts to the reduce function. The reduce function will receive 14 line counts in an array. So I will look through the array and sum up all the line counts. The reduce function will loop through the list of counts and sum it up. And the sum is the number of lines in the file.
+
+  <img width="837" alt="image" src="https://user-images.githubusercontent.com/8909535/167281669-7e33b8f1-ab85-452b-a130-adc825845427.png">
+
+  Here is the summarized context of Map Reduce.
+
+  <img width="448" alt="image" src="https://user-images.githubusercontent.com/8909535/167281675-b3709b16-cfb0-4a50-bce9-1a7c07c6dffc.png">
+
+</p>
+
 # What is Datalake and how it works
 # Introducing Apache Spark and Databricks Cloud
 
