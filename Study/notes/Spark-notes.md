@@ -1,3 +1,50 @@
+# What is Big Data and how it started
+The COBOL, also known as Common Business-Oriented Language, was the first of its kind.COBOL allowed us to store data in files, create index files, and process data efficiently. However, we saw data processing shift from COBOL to relational databases such as Oracle and Microsoft SQL Server.
+
+You can think of COBOL as the first serious attempt towards enabling data processing.And COBOL was designed in 1959.The Oracle database achieved the subsequent major success in enabling data processing.And Oracle was founded in 1977.So data processing has always been at the centre of the Software industry. Everything else will come and go, but data will only grow.
+
+We have used RDBMS technology for many decades.Some popular RDBMS systems are Oracle, SQL Server, PostgreSQL, MySQL, Teradata, and Exadata.
+
+These RDBMS systems offered us three main features to help us develop Data Processing applications.
+1.  SQL -An easy Data Query Language
+2.  Scripting Languages such as PL/SQL and Transact SQL
+3.  Interface for other programming languages such as JDBC and ODBCSo we used SQL for querying data and PL/SQL for doing things that we couldn't do using SQL.
+
+They also offered interfaces such as ODBC/JDBC so we could interact with data using the programming languages. We could create data processing applications using these technologies.
+
+# Big Data Platform Requirements
+1.  Store high volumes of data rriving at a higher velocity
+2.  Accomodate structured, semi-structured and unstructured  data variety 
+3.  Process high volumes of a variety of a data at higher velocity
+
+There were two approaches to solve the big data problem:
+1.  The monolithic approach designs one large and robust system that handles all the requirements. Teradata and Exadata are examples. These two systems mainly support only structured data. So we cannot call them big data systems, but they are designed using a monolithic approach.
+2.  The distributed approach takes many smaller systems and bring them together to solve a bigger problem.
+
+| Criteria                | Monolithic Approach         | Monolithic Approach     |
+| :---                    |:----                        | :---                    |
+| Scalability             | Vertical                    | Horizontal              |
+| Fault Tolerencend HA    | Primary/Secondary           | Multifold               |
+| Cost effectiveness      | Expensive                   | Economical              |
+
+
+Hadoop came up as a new data processing platform to solve Big Data problems.
+
+The Hadoop platform was designed and developed in layers.The core platform layer offered three capabilities:
+1. Distributed cluster formation or Cluster Operating System (YARN)
+2. Data storage and retrieval on the distributed cluster or Distributed Storage (HDFS)
+3. Distributed data processing using Java programming language or Map-Reduce Framework (MapReduce)
+
+Here is a comparison between Database and Hadoop.
+
+<img width="876" alt="image" src="https://user-images.githubusercontent.com/8909535/167280286-2b33bc0c-0627-4361-85af-92e65e5bcb0d.png">
+
+
+
+# HADOOP architecture, history and its evolution
+# What is Datalake and how it works
+# Introducing Apache Spark and Databricks Cloud
+
 # Enterprise Data Management Requirements
 * Collection / Ingestion
 * Storage
@@ -144,6 +191,16 @@ Cloud Offerings like AWS EMR, GCP Dataproc, Azure HDInsight
 * Executor/Slave (of a runing program) vs Worker of a multi-node cluster?
 * spark-submit --help (is it for local or client mode ?)
 * spark-shell --help (is it for cluster mode ?)
-* spark session and spark context
+* spark session - Driver object
+* spark context - can get context from session. context will have conf object
+* cluster manager - can bedefined as master via spark-shell, spark-submit or a method od spark session (Driver)
 
+in code, where do we specify master (cluster manager) - how to differentiate local env vs higher envs
+ => via spark-submit command line options
+
+* Spark session config precedence
+
+* real project
+  - log management
+  - conf management
 
