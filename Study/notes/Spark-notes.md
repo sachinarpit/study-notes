@@ -765,7 +765,31 @@ spark dataframe way
 import org.apache.spark.sql.functions.desc
 flightData2015.groupBy("DEST_COUNTRY_NAME").sum("count").withColumnRenamed("sum(count)", "destination_total").sort( desc("destination_total")).limit(5).show()
 
-#questions
+# How to create dataframe from in-memore data (without external file)
+from pyspark.sql import SparkSession
+spark_session = SparkSession.builder \
+    .master('local[1]') \
+    .appName('Example') \
+    .getOrCreate()
+df = spark_session.createDataFrame(
+    [
+       (1, 'Giorgos', 'Developer', 28),
+       (2, 'Andrew', 'Architect', 31),
+       (3, 'Maria', 'Manager', 31),
+       (4, 'Ben', 'Developer', 29),
+    ],
+    ['id', 'name', 'occupation', 'age']
+)
+df.show()
++---+--------+----------+---+
+| id|    name|occupation|age|
++---+--------+----------+---+
+|  1| Giorgos| Developer| 28|
+|  2|  Andrew| Architect| 31|
+|  3|   Maria|   Manager| 31|
+|  4|     Ben| Developer| 29|
++---+--------+----------+---+
+# Questions
 * Executor/Slave (of a runing program) vs Worker of a multi-node cluster?
 * spark-submit --help (is it for local or client mode ?)
 * spark-shell --help (is it for cluster mode ?)
