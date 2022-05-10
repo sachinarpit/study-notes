@@ -945,3 +945,7 @@ scala> staticDataFrame.selectExpr("CustomerId", "InvoiceDate","(UnitPrice * Quan
 only showing top 5 rows
 
 ---
+Importance of this config property
+spark.sql.shuffle.partitions
+
+---
