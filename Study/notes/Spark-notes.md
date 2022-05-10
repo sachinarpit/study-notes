@@ -915,3 +915,23 @@ Chapter 2 - page# 36 in PDF
 
 <img width="1095" alt="image" src="https://user-images.githubusercontent.com/8909535/167518071-0f854ce3-f0cc-4457-b15d-b7c060a6b784.png">
 
+---
+Why "InvoiceDate" column is not displayed in the result?
+
+val staticDataFrame = spark.read.option("header","true").option("inferSchema", "true").csv("retail-data/by-day/*.csv");
+staticDataFrame.createOrReplaceTempView("retail_data")
+
+staticDataFrame.selectExpr("CustomerId", "InvoiceDate","(UnitPrice * Quantity) as total_purchase").groupBy("customerId").sum("total_purchase").show(5)
+
++----------+-------------------+
+|customerId|sum(total_purchase)|
++----------+-------------------+
+|   14452.0| 264.44000000000005|
+|   16916.0|  576.2599999999999|
+|   17633.0| 1242.3400000000001|
+|   14768.0| 139.50000000000003|
+|   13094.0| 1708.8600000000001|
++----------+-------------------+
+only showing top 5 rows
+
+---
