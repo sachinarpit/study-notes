@@ -747,6 +747,9 @@ Cloud Offerings like AWS EMR, GCP Dataproc, Azure HDInsight
 # How Spark program runs
 
 # Run Hello World program
+# Important links for learning
+https://medium.com/datalex/sparks-logical-and-physical-plans-when-why-how-and-beyond-8cd1947b605a
+https://databricks.com/session/understanding-query-plans-and-spark-uis
 
 # Spark sample queries
 ## find the top five destination countries in the data
