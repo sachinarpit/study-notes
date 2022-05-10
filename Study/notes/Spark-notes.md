@@ -839,16 +839,47 @@ spark dataframe way
 import org.apache.spark.sql.functions.desc
 val dfWay = flightData2015.groupBy("DEST_COUNTRY_NAME").sum("count").withColumnRenamed("sum(count)", "destination_total").sort( desc("destination_total")).limit(5)
 
-dfWay.explain()
-
+dfWay.explain(mode="formatted")
 == Physical Plan ==
-AdaptiveSparkPlan isFinalPlan=false
-+- TakeOrderedAndProject(limit=5, orderBy=[destination_total#214L DESC NULLS LAST], output=[DEST_COUNTRY_NAME#157,destination_total#214L])
-   +- HashAggregate(keys=[DEST_COUNTRY_NAME#157], functions=[sum(count#159)])
-      +- Exchange hashpartitioning(DEST_COUNTRY_NAME#157, 200), ENSURE_REQUIREMENTS, [id=#444]
-         +- HashAggregate(keys=[DEST_COUNTRY_NAME#157], functions=[partial_sum(count#159)])
-            +- FileScan csv [DEST_COUNTRY_NAME#157,count#159] Batched: false, DataFilters: [], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/Users/arpitjain/Downloads/Spark-The-Definitive-Guide-master/data..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<DEST_COUNTRY_NAME:string,count:int>
+AdaptiveSparkPlan (6)
++- TakeOrderedAndProject (5)
+   +- HashAggregate (4)
+      +- Exchange (3)
+         +- HashAggregate (2)
+            +- Scan csv  (1)
 
+
+(1) Scan csv 
+Output [2]: [DEST_COUNTRY_NAME#157, count#159]
+Batched: false
+Location: InMemoryFileIndex [file:/Users/arpitjain/Downloads/Spark-The-Definitive-Guide-master/data/flight-data/csv/2015-summary.csv]
+ReadSchema: struct<DEST_COUNTRY_NAME:string,count:int>
+
+(2) HashAggregate
+Input [2]: [DEST_COUNTRY_NAME#157, count#159]
+Keys [1]: [DEST_COUNTRY_NAME#157]
+Functions [1]: [partial_sum(count#159)]
+Aggregate Attributes [1]: [sum#217L]
+Results [2]: [DEST_COUNTRY_NAME#157, sum#218L]
+
+(3) Exchange
+Input [2]: [DEST_COUNTRY_NAME#157, sum#218L]
+Arguments: hashpartitioning(DEST_COUNTRY_NAME#157, 200), ENSURE_REQUIREMENTS, [id=#444]
+
+(4) HashAggregate
+Input [2]: [DEST_COUNTRY_NAME#157, sum#218L]
+Keys [1]: [DEST_COUNTRY_NAME#157]
+Functions [1]: [sum(count#159)]
+Aggregate Attributes [1]: [sum(count#159)#210L]
+Results [2]: [DEST_COUNTRY_NAME#157, sum(count#159)#210L AS destination_total#214L]
+
+(5) TakeOrderedAndProject
+Input [2]: [DEST_COUNTRY_NAME#157, destination_total#214L]
+Arguments: 5, [destination_total#214L DESC NULLS LAST], [DEST_COUNTRY_NAME#157, destination_total#214L]
+
+(6) AdaptiveSparkPlan
+Output [2]: [DEST_COUNTRY_NAME#157, destination_total#214L]
+Arguments: isFinalPlan=false
 Chapter 2 - page# 36 in PDF
 
 <img width="1095" alt="image" src="https://user-images.githubusercontent.com/8909535/167518071-0f854ce3-f0cc-4457-b15d-b7c060a6b784.png">
