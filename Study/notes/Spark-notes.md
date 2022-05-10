@@ -918,11 +918,7 @@ Chapter 2 - page# 36 in PDF
 ---
 Why "InvoiceDate" column is not displayed in the result?
 
-val staticDataFrame = spark.read.option("header","true").option("inferSchema", "true").csv("retail-data/by-day/*.csv");
-staticDataFrame.createOrReplaceTempView("retail_data")
-
-staticDataFrame.selectExpr("CustomerId", "InvoiceDate","(UnitPrice * Quantity) as total_purchase").groupBy("customerId").sum("total_purchase").show(5)
-
+scala> staticDataFrame.selectExpr("CustomerId", "InvoiceDate","(UnitPrice * Quantity) as total_purchase").groupBy("customerId").sum("total_purchase").show(5)
 +----------+-------------------+
 |customerId|sum(total_purchase)|
 +----------+-------------------+
