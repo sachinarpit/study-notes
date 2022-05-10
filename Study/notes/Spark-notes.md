@@ -359,7 +359,7 @@ How Spark SQL can help in processing semi-structured data
 ---
 New concepts like Dataframes and Datasets are part of Spark Core APIs only..? in notes, it was mentioned they are RDD based.
 ---
-What are job stages while running a cell in notebook?
+What are job, stages, tasks?
 ---
 Why its not getting sorted in "01-getting-started notebook - databricks community edition"?avg_price_df = diamonds_df.select("color", "price").groupBy("color").agg(avg("price")).sort("avg(price)")
 avg_price_df.show()
