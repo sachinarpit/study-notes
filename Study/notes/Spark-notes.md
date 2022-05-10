@@ -832,6 +832,10 @@ AdaptiveSparkPlan isFinalPlan=false
          +- FileScan csv [DEST_COUNTRY_NAME#199] Batched: false, DataFilters: [], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/Users/arpitjain/Downloads/Spark-The-Definitive-Guide-master/data..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<DEST_COUNTRY_NAME:string>
 
 ---
+Dataset examples
+---
+
+
 How to understand explain plan of a dataframe
 
 find the top five destination countries in the data
