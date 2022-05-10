@@ -835,7 +835,7 @@ result is passed through the Catalyst Optimizer, a collection of rules that atte
 logical plan by pushing down predicates or selections. Packages can extend the Catalyst to
 include their own rules for domain-specific optimizations.
     
-    <img width="1195" alt="image" src="https://user-images.githubusercontent.com/8909535/167597035-a775942d-51d0-44c5-b9a6-eded58cb99c1.png">
+<img width="1195" alt="image" src="https://user-images.githubusercontent.com/8909535/167597035-a775942d-51d0-44c5-b9a6-eded58cb99c1.png">
 </p>
 
 Physical Planning
@@ -846,7 +846,7 @@ on the cluster by generating different physical execution strategies and compari
 a cost model, as depicted in Figure 4-3. An example of the cost comparison might be choosing
 how to perform a given join by looking at the physical attributes of a given table (how big the
 table is or how big its partitions are).
-    <img width="1202" alt="image" src="https://user-images.githubusercontent.com/8909535/167597172-3459fa94-024f-4694-ab8b-b02797f5d67c.png">
+<img width="1202" alt="image" src="https://user-images.githubusercontent.com/8909535/167597172-3459fa94-024f-4694-ab8b-b02797f5d67c.png">
 
     Physical planning results in a series of RDDs and transformations. This result is why you might
 have heard Spark referred to as a compiler—it takes queries in DataFrames, Datasets, and SQL and compiles them into RDD transformations for you.
