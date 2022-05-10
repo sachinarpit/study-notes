@@ -751,7 +751,21 @@ Cloud Offerings like AWS EMR, GCP Dataproc, Azure HDInsight
 https://medium.com/datalex/sparks-logical-and-physical-plans-when-why-how-and-beyond-8cd1947b605a
 https://databricks.com/session/understanding-query-plans-and-spark-uis
 
-# Spark sample queries
+# Spark sample queries / code snippets
+## Sale hours during which a given customer (identified by CustomerId) makes a large purchase (top 5 customers)
+
+spark-scala>
+
+import org.apache.spark.sql.functions.{window, column, desc, col}
+
+with orderBy()
+staticDataFrame .selectExpr( "CustomerId", "(UnitPrice * Quantity) as total_cost", "InvoiceDate") .groupBy( col("CustomerId"),     window(col("InvoiceDate"), "1 day")) .sum("total_cost") .orderBy(col("sum(total_cost)").desc).limit(5).show()
+
+with sort()
+staticDataFrame .selectExpr( "CustomerId", "(UnitPrice * Quantity) as total_cost", "InvoiceDate") .groupBy( col("CustomerId"),     window(col("InvoiceDate"), "1 day")) .sum("total_cost") .sort(col("sum(total_cost)").desc).limit(5).show()
+
+Results will be same.
+
 ## find the top five destination countries in the data
 val flightData2015 = spark.read.option("header","true").option("inferSchema","true").csv("flight-data/csv/2015-summary.csv")
 
@@ -765,7 +779,7 @@ spark dataframe way
 import org.apache.spark.sql.functions.desc
 flightData2015.groupBy("DEST_COUNTRY_NAME").sum("count").withColumnRenamed("sum(count)", "destination_total").sort( desc("destination_total")).limit(5).show()
 
-# How to create dataframe from in-memore data (without external file)
+## How to create dataframe from in-memore data (without external file)
 from pyspark.sql import SparkSession
 spark_session = SparkSession.builder \
     .master('local[1]') \
