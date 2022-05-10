@@ -834,6 +834,7 @@ avg_price_df.show()
 difference in running pyspark, spark-shell and spark-submit from cmd line
 ---
 csv file and tab limited files are structured?  why? Spark - The definitive guide says on Page#22 that CSV is semi-structured
+ideally - CSV - semi, log - unstructurd, parquet - strucurud, but why parquet is structured?
 ---
 app log is  unstructured..why?
 ---
