@@ -23,11 +23,11 @@ HIVE
 		mysql> select user, host from mysql.user;
 
 		create user and grant access to the metastore database
-			mysql> CREATE user 'hiveuser'@'localhost' identified by 'hivepassword';
-			   
-			mysql> REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'hiveuser'@'localhost';
-			mysql> GRANT ALL ON metastore.* TO 'hiveuser'@'localhost' ;
-			mysql> FLUSH PRIVILEGES;
+			mysql> 
+			CREATE user 'hiveuser'@'localhost' identified by 'hivepassword';
+			REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'hiveuser'@'localhost';
+			GRANT ALL ON metastore.* TO 'hiveuser'@'localhost' ;
+			FLUSH PRIVILEGES;
 
 
 		verify hiveuser login
@@ -102,3 +102,7 @@ hive
 		once on Mac shell run this => hdfs dfs -ls /user/hive/warehouse (this dir was specified in hive-site.xml as part of this field value - hive.metastore.warehouse.dir => hdfs://localhost:9000/user/hive/warehouse)
 		
 		uninstall -> delete hive folder from /usr/local
+===
+show databases;
+FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
+Error
