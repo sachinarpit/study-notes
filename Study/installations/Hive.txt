@@ -1,15 +1,15 @@
 HIVE
 	pre-req - mysql, Hadoop, Java
 
-	Download and extract apache-hive-2.3.9-bin.tar.gz from https://dlcdn.apache.org/hive/hive-2.3.9
+	Download and extract apache-hive-3.1.3-bin.tar.gz from https://downloads.apache.org/hive/hive-3.1.3/
 
 	Download mysql driver => Select Platform Independent -> Download to your machine => download zip
 	
 	Extract zip and copy connector jar from this zip to $HIVE_HOME/lib (use sudo, if required)
 	
 	cd /usr/local
-	sudo tar -xvzf ~/Downloads/apache-hive-2.3.9-bin.tar.gz
-	sudo mv apache-hive-2.3.9-bin hive239
+	sudo tar -xvzf ~/Downloads/apache-hive-3.1.3-bin.tar.gz
+	sudo mv apache-hive-3.1.3-bin hive313
 
 	Declare HIVE_HOME and HIVE_HOME in PATH - ~/.zprofile
 		export HIVE_HOME=/usr/local/hive313
