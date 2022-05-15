@@ -39,6 +39,8 @@ HADOOP
 	sudo mkdir namenode
 	sudo mkdir datanode
 	
+	chmod -R 777 /usr/local/hadoopnodesdata
+	
 	hdfs-site.xml
 <configuration>
         <property>
