@@ -32,13 +32,27 @@ HADOOP
 	</property>
 </configuration>
 
-
+	create 2 directories for namenode and datanode
+	
+	cd /usr/local
+	sudo mkdir hadoopnodesdata
+	sudo mkdir namenode
+	sudo mkdir datanode
+	
 	hdfs-site.xml
 <configuration>
-	<property>
-		<name>dfs.replication</name>
-		<value>1</value>
-	</property>
+        <property>
+                <name>dfs.replication</name>
+                <value>1</value>
+        </property>
+        <property>
+                <name>dfs.namenode.name.dir</name>
+                <value>file:///usr/local/hadoopnodesdata/namenode</value>
+        </property>
+        <property>
+                <name>dfs.datanode.data.dir</name>
+                <value>file:///usr/local/hadoopnodesdata/datanode</value>
+        </property>
 </configuration>
 
 	mapred-site.xml
