@@ -1,4 +1,4 @@
-Order of execution in SQL
+# Order of execution in SQL
 1. FROM and JOINs
 2. WHERE
 3. GROUP BY
@@ -7,4 +7,4 @@ Order of execution in SQL
 6. DISTINCT
 7. ORDER BY
 8. LIMIT / OFFSET
-Aggregations will be after Group by only.
+* Aggregations will be after Group by only.
