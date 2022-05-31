@@ -5,3 +5,4 @@ screenshot - ctrl+cmd+shift+4
 copy path of a folder -> option key+right (doesnt work from external Win keyboard) click -> copy "dirname" as pathname
 mac rc file is - ~/.zprofile
 sudo systemsetup -getremotelogin (check rempte login status)
+check all opened apps - Command + Option + Esc
