@@ -23,3 +23,4 @@ ModuleNotFoundError: No module named 'pandas'
 Process finished with exit code 1
 
   
+Solution - Click on the error in code (Pycharm), it will show suggestion - install pandas, install it and rerun the file
