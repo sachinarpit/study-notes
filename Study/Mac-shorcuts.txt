@@ -1,3 +1,0 @@
-Mac shorcuts
-==========
-Open any dir from spotlight - command+space bar 
