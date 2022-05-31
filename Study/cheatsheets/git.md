@@ -1,3 +1,4 @@
 - Use github desktop app
 - To see any changes in local (done from github ui) - fetch + pull in app and verify in local folder
 - To commit any changes from local, make change anywhere in local, go to app and commit + push, and verify in github ui
+- To push new code from Pycharm -> Add, commit, Push from Pycharm -> Git
