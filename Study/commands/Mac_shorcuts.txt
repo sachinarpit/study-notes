@@ -6,3 +6,4 @@ copy path of a folder -> option key+right (doesnt work from external Win keyboar
 mac rc file is - ~/.zprofile
 sudo systemsetup -getremotelogin (check rempte login status)
 check all opened apps - Command + Option + Esc
+search and delete recursively all hidden files starting with name myfileordirname=> find . -name ".myfileordirname*" -exec rm -rf {} \;
