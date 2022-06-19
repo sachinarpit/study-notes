@@ -9,4 +9,5 @@ https://www.scaledagileframework.com/inspect-and-adapt/
 https://www.scaledagileframework.com/strategic-themes/
 https://www.scaledagileframework.com/participatory-budgeting/
 https://www.scaledagileframework.com/portfolio-kanban/
-
+https://www.scaledagileframework.com/implementation-roadmap/
+https://www.studystack.com/flashcard-3411218
