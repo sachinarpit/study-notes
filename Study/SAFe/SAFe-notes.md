@@ -1,0 +1,12 @@
+https://www.scaledagileframework.com/safe-for-lean-enterprises/
+https://www.scaledagileframework.com/safe-lean-agile-principles/
+https://www.scaledagileframework.com/safe-core-values
+https://agility.im/frequent-agile-question/what-are-the-roles-in-safe
+https://www.youtube.com/watch?v=OocTbTaVxcY
+https://www.scaledagileframework.com/guardrails/
+https://www.scaledagileframework.com/lean-agile-mindset/
+https://www.scaledagileframework.com/inspect-and-adapt/
+https://www.scaledagileframework.com/strategic-themes/
+https://www.scaledagileframework.com/participatory-budgeting/
+https://www.scaledagileframework.com/portfolio-kanban/
+
